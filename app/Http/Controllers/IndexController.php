@@ -7,15 +7,15 @@ use Illuminate\Http\Request;
 class IndexController extends Controller
 {
      function index(){
-        return view("Index");
+        return view("Index",["pageTitle"=>'Dashboard']);
     }
 
      function about(){
-        return view("about", ["pageTitle"=>'about']);
+        return view("about", ["pageTitle"=>'About']);
     }
 
      function contact(){
-        return view("contact", ["pageTitle"=>'contact']);
+        return view("contact", ["pageTitle"=>'Contact Us']);
     }
 
 }
