@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Dom\Comment;
 use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
@@ -13,7 +14,9 @@ class Post extends Model
         "published",
         "author"
     ];
-    protected $guarded = [
-        "id"
-    ];
+    protected $guarded = ["id"];
+
+    public function comments(){
+        return $this->hasMany(Comment::class);
+    }
 }
