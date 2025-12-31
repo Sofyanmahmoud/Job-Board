@@ -12,21 +12,15 @@ class CommentController extends Controller
         //gets all data
         $data=Comment::all();
         //pass data to view
-        return view('comment/index',['Comments'=>$data ,"pageTitle"=>"blog"]);
-    }
-
-    function show($id){
-        $Comment= Comment::findOrFail($id);
-        return view('comment/show' ,['Comment'=>$Comment , "pageTitle"=>$Comment->title]);
+        return view('comment/index',['comments'=>$data ,"pageTitle"=>"comments"]);
     }
 
     function create(){
-        $Comment=Comment::create([
-        "title"=>"test2",
-        "body"=>"suiii123",
-        "published"=>true,
-        "author"=>"ali"
+        Comment::create([
+            "author"=>"ali",
+            "content"=>"test 33 comment",
+            "post_id"=> 3
         ]);
-        return redirect('/blog');
+        return redirect('/comments');
     }
 }
